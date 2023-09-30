@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+
+$colors: (
+  border: #b9b7b7,
+  primary: #4758B8,
+  warn: #F44335,
+  accent: #FF4786,
+  background: #FFFFFF,
+  color: #000000
+);
+
+@function getColor($colorKey) {
+  @return map-get($colors, $colorKey);
+}

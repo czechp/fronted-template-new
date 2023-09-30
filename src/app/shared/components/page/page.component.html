@@ -1,0 +1,7 @@
+<div *ngIf="loaded">
+  <h1>{{title}}</h1>
+  <ng-content/>
+</div>
+<div *ngIf="!loaded" class="loading-spinner">
+  <mat-spinner diameter="300" strokeWidth="1"/>
+</div>

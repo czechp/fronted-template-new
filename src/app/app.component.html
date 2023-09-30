@@ -1,3 +1,14 @@
-<button mat-raised-button color="primary">Example button</button>
-<button mat-raised-button color="accent">Example button</button>
-<button mat-raised-button color="warn">Example button</button>
+<div class="container">
+  <app-top-bar/>
+  <div class="content-container">
+    <div class="menu">
+      <app-nav-bar/>
+    </div>
+    <div class="content">
+      <app-page [loaded]="true" [title]="'Example page'">
+        Hello darkness my old friend
+      </app-page>
+    </div>
+  </div>
+
+</div>
