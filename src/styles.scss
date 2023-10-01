@@ -10,7 +10,8 @@
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
-  color: getColor(primary);
+  color: getColor(color);
+  background-color: getColor(background);
 }
 
 form {
@@ -23,4 +24,5 @@ form {
     width: 100%;
   }
 }
+
 

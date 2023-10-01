@@ -25,11 +25,11 @@
     border-right: none;
     background-color: inherit;
     cursor: pointer;
-    color: getColor(primary)
+    color: getColor(color)
   }
 
   button:hover {
-    background-color: getColor(primary);
+    background-color: getColor(color);
     color: getColor(background);
   }
 

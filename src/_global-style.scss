@@ -7,8 +7,9 @@ $colors: (
   primary: #4758B8,
   warn: #F44335,
   accent: #FF4786,
-  background: #FFFFFF,
-  color: #000000
+  background: #ffffff,
+  color: #001f3f,
+  top-bar-background: #333333
 );
 
 @function getColor($colorKey) {

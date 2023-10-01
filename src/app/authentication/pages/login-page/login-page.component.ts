@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {LoginForm, LoginFormsService} from "../forms/login-forms.service";
+import {LoginForm, LoginFormsService} from "../../services/login-forms.service";
 import {FormGroup} from "@angular/forms";
 import {ValidatorsMessages} from "../../../shared/constants/validators-messages";
 
