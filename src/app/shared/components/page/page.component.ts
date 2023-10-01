@@ -10,4 +10,6 @@ export class PageComponent {
   title: string | undefined = undefined;
   @Input()
   loaded: boolean = true;
+  @Input()
+  centralFlow: boolean = true;
 }

@@ -8,3 +8,9 @@ h1 {
   justify-content: center;
   margin-top: 15rem;
 }
+
+.center-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

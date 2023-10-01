@@ -1,4 +1,4 @@
-<div *ngIf="loaded">
+<div *ngIf="loaded" [ngClass]="{'center-flow':centralFlow}">
   <h1>{{title}}</h1>
   <ng-content/>
 </div>
