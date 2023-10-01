@@ -5,7 +5,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {TopBarComponent} from './layout/components/top-bar/top-bar.component';
 import {NavBarComponent} from './layout/components/nav-bar/nav-bar.component';
-import {SharedModule} from "./shared/shared.module";
+import {AuthenticationModule} from "./authentication/authentication.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {SharedModule} from "./shared/shared.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    AuthenticationModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
