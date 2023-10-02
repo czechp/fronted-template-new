@@ -16,3 +16,8 @@
   align-items: center;
   font-size: x-large;
 }
+
+.error {
+  color: getColor(warn);
+  border: .3rem solid getColor(warn);
+}

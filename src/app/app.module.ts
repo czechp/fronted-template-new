@@ -8,6 +8,8 @@ import {NavBarComponent} from './layout/components/nav-bar/nav-bar.component';
 import {AuthenticationModule} from "./authentication/authentication.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SharedModule} from "./shared/shared.module";
+import {StoreModule} from "@ngrx/store";
+import {statementReducer} from "./shared/stores/statement.store";
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import {SharedModule} from "./shared/shared.module";
     AuthenticationModule,
     BrowserAnimationsModule,
     SharedModule,
+    StoreModule.forRoot({statementStore: statementReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
