@@ -1,0 +1,18 @@
+@import "src/global-style";
+
+.container {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 30%;
+  height: 10rem;
+  border: .3rem solid getColor(success);
+  z-index: 999;
+  background-color: getColor(background);
+  color: getColor(success);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+}

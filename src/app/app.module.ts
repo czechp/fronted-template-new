@@ -7,6 +7,7 @@ import {TopBarComponent} from './layout/components/top-bar/top-bar.component';
 import {NavBarComponent} from './layout/components/nav-bar/nav-bar.component';
 import {AuthenticationModule} from "./authentication/authentication.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AppRoutingModule,
     AuthenticationModule,
     BrowserAnimationsModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,12 +6,14 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {LoadingSpinnerComponent} from './components/loading-spinner/loading-spinner.component';
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {StatementComponent} from './components/statement/statement.component';
 
 
 @NgModule({
   declarations: [
     PageComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    StatementComponent
   ],
   exports: [
     PageComponent,
@@ -19,6 +21,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    StatementComponent,
   ],
   imports: [
     CommonModule,

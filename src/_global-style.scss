@@ -9,7 +9,8 @@ $colors: (
   accent: #FF4786,
   background: #ffffff,
   color: #001f3f,
-  top-bar-background: #333333
+  top-bar-background: #333333,
+  success: #28A745
 );
 
 @function getColor($colorKey) {
