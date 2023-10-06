@@ -7,6 +7,7 @@ import {LoadingSpinnerComponent} from './components/loading-spinner/loading-spin
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {StatementComponent} from './components/statement/statement.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {StatementComponent} from './components/statement/statement.component';
     FormsModule,
     ReactiveFormsModule,
     StatementComponent,
+    HttpClientModule
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import {StatementComponent} from './components/statement/statement.component';
     MatProgressSpinnerModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class SharedModule {

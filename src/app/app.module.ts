@@ -10,12 +10,17 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SharedModule} from "./shared/shared.module";
 import {StoreModule} from "@ngrx/store";
 import {statementReducer} from "./shared/stores/statement.store";
+import {authenticationReducer} from "./authentication/store/authentication.store";
+import {HomePageComponent} from './home/pages/home-page/home-page.component';
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {HttpResponseErrorInterceptorService} from "./shared/interceptors/http-response-error-interceptor.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
-    NavBarComponent
+    NavBarComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +28,13 @@ import {statementReducer} from "./shared/stores/statement.store";
     AuthenticationModule,
     BrowserAnimationsModule,
     SharedModule,
-    StoreModule.forRoot({statementStore: statementReducer})
+    StoreModule.forRoot({statementStore: statementReducer, authenticationStore: authenticationReducer})
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpResponseErrorInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

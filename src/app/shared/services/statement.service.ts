@@ -21,4 +21,10 @@ export class StatementService {
       msg: {message: msg, error: true}
     }))
   }
+
+  showIncorrectFormValidation() {
+    this.store.dispatch(setMessage({
+      msg: {message: "Sprawdź poprawność wprowadzonych danych", error: true}
+    }))
+  }
 }
