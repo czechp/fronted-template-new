@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -14,6 +14,11 @@ import {authenticationReducer} from "./authentication/store/authentication.store
 import {HomePageComponent} from './home/pages/home-page/home-page.component';
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {HttpResponseErrorInterceptorService} from "./shared/interceptors/http-response-error-interceptor.service";
+import {InitService} from "./init.service";
+
+export function initializeApp(appInitializer: InitService) {
+  return () => appInitializer.initializeApp();
+}
 
 @NgModule({
   declarations: [
@@ -34,7 +39,16 @@ import {HttpResponseErrorInterceptorService} from "./shared/interceptors/http-re
     provide: HTTP_INTERCEPTORS,
     useClass: HttpResponseErrorInterceptorService,
     multi: true
-  }],
+  },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [InitService],
+      multi: true
+    }
+  ],
+
+
   bootstrap: [AppComponent]
 })
 export class AppModule {

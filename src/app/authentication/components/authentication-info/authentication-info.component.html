@@ -1,0 +1,5 @@
+<div *ngIf="(authenticationData$| async)?.logged" class="container">
+  <span>{{(authenticationData$|async)?.login}}</span>
+  <span>{{(authenticationData$|async)?.email}}</span>
+  <button (click)="logoutClick()" color="warn" mat-raised-button>Wyloguj</button>
+</div>
