@@ -36,4 +36,7 @@ export class LoginPageComponent {
       this.statementService.showIncorrectFormValidation();
   }
 
+  goToRegister() {
+    this.router.navigate(["/register"]);
+  }
 }
