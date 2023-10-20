@@ -1,51 +1,26 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {LoginModel} from "../models/login.model";
 
-export interface LoginForm {
-  login: FormControl<string | null>,
-  password: FormControl<string | null>
-}
+export type LoginForm = FormGroup<{
+  login: FormControl<string>,
+  password: FormControl<string>
+}>;
 
-export interface RegisterForm {
-  login: FormControl<string | null>,
-  password: FormControl<string | null>,
-  passwordConfirm: FormControl<string | null>,
-  email: FormControl<string | null>
-}
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthenticationFormService {
+  private formBuilder = inject(FormBuilder);
+  loginForm: LoginForm = this.formBuilder.group({
+    login: this.formBuilder.control("", {nonNullable: true, validators: [Validators.required]}),
+    password: this.formBuilder.control("", {nonNullable: true, validators: [Validators.required]})
+  });
 
-  constructor(private formBuilder: FormBuilder) {
-  }
-
-  createLoginForm(): FormGroup<LoginForm> {
-    return this.formBuilder.group({
-      login: ["", [Validators.required]],
-      password: ["", [Validators.required]]
-    });
-  }
-
-  createLoginModel(loginForm: FormGroup<LoginForm>): LoginModel {
-    return {
-      login: loginForm.value.login as string,
-      password: loginForm.value.password as string
-    }
-  }
-
-  createRegisterForm(): FormGroup<RegisterForm> {
-    return this.formBuilder.group({
-      login: ["", [Validators.required, Validators.minLength(3)]],
-      password: ["", [Validators.required, Validators.minLength(3)]],
-      passwordConfirm: ["", [Validators.required, passwordSameValidator]],
-      email: ["", [Validators.required, Validators.email]],
-    });
+  createLoginModel(): LoginModel {
+    return this.loginForm.getRawValue();
   }
 }
 
+//TODO get to register from service
 export function passwordSameValidator(control: AbstractControl): ValidationErrors | null {
   const passwordConfirmation = control.value as string;
   const password: string = control.parent?.get("password")?.value as string;

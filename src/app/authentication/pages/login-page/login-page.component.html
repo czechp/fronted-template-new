@@ -1,19 +1,21 @@
 <app-page title="Logowanie">
-  <form (ngSubmit)="loginClick()" [formGroup]="loginForm">
-    <mat-form-field>
-      <mat-label>Login:</mat-label>
-      <input formControlName="login" matInput placeholder="Wpisz swój login" type="text">
-      <mat-error>{{ValidatorsMessages.required}}</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Hasło:</mat-label>
-      <input formControlName="password" matInput placeholder="Wpisz swoje hasło" type="password">
-      <mat-error>{{ValidatorsMessages.required}}</mat-error>
-    </mat-form-field>
-    <button color="primary" mat-raised-button>Zaloguj</button>
-  </form>
-  <p>Jeżeli nie masz konta</p>
-  <form (ngSubmit)="goToRegister()">
-    <button color="accent" mat-raised-button>Rejestracja</button>
-  </form>
+  <div class="form-wrapper">
+    <form (ngSubmit)="loginClick()" [formGroup]="loginForm">
+      <mat-form-field>
+        <mat-label>Login:</mat-label>
+        <input formControlName="login" matInput placeholder="Wpisz swój login" type="text">
+        <mat-error>{{ValidatorsMessages.required}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Hasło:</mat-label>
+        <input formControlName="password" matInput placeholder="Wpisz swoje hasło" type="password">
+        <mat-error>{{ValidatorsMessages.required}}</mat-error>
+      </mat-form-field>
+      <button color="primary" mat-raised-button>Zaloguj</button>
+    </form>
+    <p>Jeżeli nie masz konta</p>
+    <form (ngSubmit)="goToRegister()">
+      <button color="accent" mat-raised-button>Rejestracja</button>
+    </form>
+  </div>
 </app-page>

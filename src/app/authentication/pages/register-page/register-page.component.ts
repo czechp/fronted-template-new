@@ -1,7 +1,5 @@
-import {Component} from '@angular/core';
-import {AuthenticationFormService, RegisterForm} from "../../services/authentication-form.service";
-import {FormGroup} from "@angular/forms";
-import {ValidatorsMessages} from "../../../shared/constants/validators-messages";
+import {Component, inject} from '@angular/core';
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'app-register-page',
@@ -9,13 +7,8 @@ import {ValidatorsMessages} from "../../../shared/constants/validators-messages"
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent {
-  registerForm: FormGroup<RegisterForm>;
-  protected readonly ValidatorsMessages = ValidatorsMessages;
+  private authenticationService = inject(AuthenticationService);
 
-  constructor(private authenticationFormService: AuthenticationFormService) {
-    this.registerForm = this.authenticationFormService.createRegisterForm();
-  }
-
-  registerClick() {
+  constructor() {
   }
 }

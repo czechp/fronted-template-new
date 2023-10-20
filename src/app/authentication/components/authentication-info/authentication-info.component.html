@@ -1,5 +1,7 @@
-<div *ngIf="(authenticationData$| async)?.logged" class="container">
-  <span>{{(authenticationData$|async)?.login}}</span>
-  <span>{{(authenticationData$|async)?.email}}</span>
-  <button (click)="logoutClick()" color="warn" mat-raised-button>Wyloguj</button>
-</div>
+<ng-container *ngIf="authenticationData$ | async as authData">
+  <div *ngIf="authData.logged" class="container">
+    <span>{{authData.login}}</span>
+    <span>{{authData.email}}</span>
+    <button (click)="logoutClick()" color="warn" mat-raised-button>Wyloguj</button>
+  </div>
+</ng-container>
