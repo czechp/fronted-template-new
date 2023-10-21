@@ -11,10 +11,10 @@ export class RegisterFormComponent {
   @Input({required: true})
   registerForm!: RegisterForm;
   @Output()
-  userRegistered = new EventEmitter();
+  userRegistered = new EventEmitter<void>();
   protected readonly ValidatorsMessages = ValidatorsMessages;
 
   registerClick() {
-
+    this.userRegistered.emit();
   }
 }

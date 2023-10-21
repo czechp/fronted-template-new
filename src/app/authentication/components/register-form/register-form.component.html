@@ -2,9 +2,10 @@
   <form (ngSubmit)="registerClick()" [formGroup]="registerForm">
     <mat-form-field>
       <mat-label>Login</mat-label>
-      <input formControlName="login" matInput placeholder="Wpisz swój login" type="text">
-      <mat-error *ngIf="registerForm.get('login')?.hasError('required')">{{ValidatorsMessages.required}}</mat-error>
-      <mat-error *ngIf="registerForm.get('login')?.hasError('minlength')">{{ValidatorsMessages.minLength}}</mat-error>
+      <input formControlName="username" matInput placeholder="Wpisz swój login" type="text">
+      <mat-error *ngIf="registerForm.get('username')?.hasError('required')">{{ValidatorsMessages.required}}</mat-error>
+      <mat-error
+        *ngIf="registerForm.get('username')?.hasError('minlength')">{{ValidatorsMessages.minLength}}</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Email</mat-label>

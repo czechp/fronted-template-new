@@ -1,11 +1,8 @@
 import {inject, Injectable} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 import {LoginModel} from "../models/login.model";
+import {LoginForm} from "../forms/login.form";
 
-export type LoginForm = FormGroup<{
-  login: FormControl<string>,
-  password: FormControl<string>
-}>;
 
 @Injectable()
 export class AuthenticationFormService {
@@ -18,13 +15,4 @@ export class AuthenticationFormService {
   createLoginModel(): LoginModel {
     return this.loginForm.getRawValue();
   }
-}
-
-//TODO get to register from service
-export function passwordSameValidator(control: AbstractControl): ValidationErrors | null {
-  const passwordConfirmation = control.value as string;
-  const password: string = control.parent?.get("password")?.value as string;
-  if (passwordConfirmation !== password)
-    return {differentPassword: true};
-  return null;
 }

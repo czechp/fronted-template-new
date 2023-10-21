@@ -1,9 +1,10 @@
 import {Component, inject} from '@angular/core';
-import {AuthenticationFormService, LoginForm} from "../../services/authentication-form.service";
+import {AuthenticationFormService} from "../../services/authentication-form.service";
 import {ValidatorsMessages} from "../../../shared/constants/validators-messages";
 import {StatementService} from "../../../shared/services/statement.service";
 import {AuthenticationService} from "../../services/authentication.service";
 import {Router} from "@angular/router";
+import {LoginForm} from "../../forms/login.form";
 
 @Component({
   selector: 'app-login-page',

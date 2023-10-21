@@ -1,14 +1,35 @@
 import {Component, inject} from '@angular/core';
-import {AuthenticationService} from "../../services/authentication.service";
+import {RegisterForm} from "../../forms/register.form";
+import {RegisterFormService} from "../../services/register-form.service";
+import {StatementService} from "../../../shared/services/statement.service";
+import {RegisterModel} from "../../models/register.model";
+import {RegisterService} from "../../services/register.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.scss']
+  styleUrls: ['./register-page.component.scss'],
+  providers: [RegisterFormService]
 })
 export class RegisterPageComponent {
-  private authenticationService = inject(AuthenticationService);
+  private registerFormService = inject(RegisterFormService);
+  registerForm: RegisterForm = this.registerFormService.registerForm;
+  private statementService = inject(StatementService);
+  private registerService = inject(RegisterService);
+  private router = inject(Router);
 
-  constructor() {
+  registerUser() {
+    if (this.registerFormService.isInvalid()) {
+      this.statementService.showIncorrectFormValidation();
+      return;
+    }
+    const registerModel: RegisterModel = this.registerFormService.toRegisterModel();
+    this.registerService.registerUser(registerModel)
+      .subscribe(() => {
+        console.log("Works")
+        this.statementService.showInfo("Na Twojego maila został wysłany token werifikacyjny wklej go tutaj");
+        this.router.navigate(["/register-confirmation"]);
+      })
   }
 }
