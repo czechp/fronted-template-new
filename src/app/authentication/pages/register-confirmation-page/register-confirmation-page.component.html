@@ -1,3 +1,4 @@
 <app-page title="Potwierdzenie rejestracji">
-  <app-register-confirmation-form [registerConfirmationForm]="registerConfirmationForm"/>
+  <app-register-confirmation-form (registrationConfirmed)="confirmRegistration()"
+                                  [registerConfirmationForm]="registerConfirmationForm"/>
 </app-page>

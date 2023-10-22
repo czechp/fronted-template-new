@@ -3,6 +3,9 @@
   <button (click)="navigateTo('/')">Home</button>
   <button (click)="navigateTo('/login')">Logowanie</button>
   <button (click)="navigateTo('/register')">Rejestracja</button>
+  <p *appIsAdmin>Panel administratora</p>
+  <button (click)="navigateTo('/users')" *appIsAdmin>Użytkownicy</button>
+
   <p>Section1</p>
   <button>Link1</button>
   <button>Link2</button>

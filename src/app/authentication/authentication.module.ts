@@ -11,6 +11,9 @@ import {
 import {
   RegisterConfirmationFormComponent
 } from './components/register-confirmation-form/register-confirmation-form.component';
+import {UsersPageComponent} from './pages/users-page/users-page.component';
+import {IsAdminDirective} from './directives/is-admin.directive';
+import {ForbiddenPageComponent} from './pages/forbidden-page/forbidden-page.component';
 
 
 @NgModule({
@@ -20,11 +23,15 @@ import {
     RegisterPageComponent,
     RegisterFormComponent,
     RegisterConfirmationPageComponent,
-    RegisterConfirmationFormComponent
+    RegisterConfirmationFormComponent,
+    UsersPageComponent,
+    IsAdminDirective,
+    ForbiddenPageComponent
   ],
   exports: [
     LoginPageComponent,
-    AuthenticationInfoComponent
+    AuthenticationInfoComponent,
+    IsAdminDirective
   ],
   imports: [
     CommonModule,

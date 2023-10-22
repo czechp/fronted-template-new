@@ -75,10 +75,16 @@ export class AuthenticationService {
     };
   }
 
+  isAdmin() {
+    const authData = this.fetchCredentials();
+    return authData.role === "ADMIN";
+  }
+
   private clearCredentials() {
     localStorage.removeItem("login");
     localStorage.removeItem("authToken");
     localStorage.removeItem("email");
     localStorage.removeItem("password");
+    localStorage.removeItem("role");
   }
 }
