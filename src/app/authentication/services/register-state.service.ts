@@ -4,7 +4,7 @@ import {AbstractControl, FormBuilder, ValidationErrors, Validators} from "@angul
 import {RegisterModel} from "../models/register.model";
 
 @Injectable()
-export class RegisterFormService {
+export class RegisterStateService {
   private formBuilder = inject(FormBuilder);
   registerForm: RegisterForm = this.formBuilder.group({
     username: this.formBuilder.control("", {

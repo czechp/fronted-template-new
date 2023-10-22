@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {RegisterForm} from "../../forms/register.form";
-import {RegisterFormService} from "../../services/register-form.service";
+import {RegisterStateService} from "../../services/register-state.service";
 import {StatementService} from "../../../shared/services/statement.service";
 import {RegisterModel} from "../../models/register.model";
 import {RegisterService} from "../../services/register.service";
@@ -10,10 +10,10 @@ import {Router} from "@angular/router";
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
   styleUrls: ['./register-page.component.scss'],
-  providers: [RegisterFormService]
+  providers: [RegisterStateService]
 })
 export class RegisterPageComponent {
-  private registerFormService = inject(RegisterFormService);
+  private registerFormService = inject(RegisterStateService);
   registerForm: RegisterForm = this.registerFormService.registerForm;
   private statementService = inject(StatementService);
   private registerService = inject(RegisterService);

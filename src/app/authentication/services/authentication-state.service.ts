@@ -5,7 +5,7 @@ import {LoginForm} from "../forms/login.form";
 
 
 @Injectable()
-export class AuthenticationFormService {
+export class AuthenticationStateService {
   private formBuilder = inject(FormBuilder);
   loginForm: LoginForm = this.formBuilder.group({
     login: this.formBuilder.control("", {nonNullable: true, validators: [Validators.required]}),

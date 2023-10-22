@@ -1,0 +1,11 @@
+<div class="form-wrapper">
+  <form (ngSubmit)="confirmRegistration()" [formGroup]="registerConfirmationForm">
+    <mat-form-field>
+      <mat-label>Token werifikacyjny</mat-label>
+      <input formControlName="confirmationToken" matInput type="text">
+      <mat-error
+        *ngIf="registerConfirmationForm.get('confirmationToken')?.hasError('required')">{{ValidatorsMessages.required}}</mat-error>
+    </mat-form-field>
+    <button color="primary" mat-raised-button>Potwierdź</button>
+  </form>
+</div>
