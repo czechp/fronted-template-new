@@ -87,4 +87,8 @@ export class AuthenticationService {
     localStorage.removeItem("password");
     localStorage.removeItem("role");
   }
+
+  getCredentialsHashCode() {
+    return localStorage.getItem("authToken");
+  }
 }

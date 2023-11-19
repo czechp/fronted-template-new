@@ -15,6 +15,7 @@ import {HomePageComponent} from './home/pages/home-page/home-page.component';
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {HttpResponseErrorInterceptorService} from "./shared/interceptors/http-response-error-interceptor.service";
 import {InitService} from "./init.service";
+import {AuthenticationInterceptorService} from "./shared/interceptors/authentication-interceptor.service";
 
 export function initializeApp(appInitializer: InitService) {
   return () => appInitializer.initializeApp();
@@ -40,6 +41,11 @@ export function initializeApp(appInitializer: InitService) {
     useClass: HttpResponseErrorInterceptorService,
     multi: true
   },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptorService,
+      multi: true
+    },
     {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,

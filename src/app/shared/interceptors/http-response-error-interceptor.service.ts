@@ -21,6 +21,6 @@ export class HttpResponseErrorInterceptorService implements HttpInterceptor {
   }
 
   private handleError(response: HttpErrorResponse) {
-    this.statementService.showError(response.error.message);
+    this.statementService.showError(response.error.message || "Brak połączenia z serwerem");
   }
 }

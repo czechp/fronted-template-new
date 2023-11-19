@@ -1,0 +1,24 @@
+<table>
+  <thead>
+  <tr>
+    <th>Id:</th>
+    <th>Username:</th>
+    <th>Email:</th>
+    <th>Rola:</th>
+    <th>Utworzony:</th>
+    <th>Potwierdzenie adresu email:</th>
+    <th>Aktywacja administratora:</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr (click)="navigateToDetails(user.id)" *ngFor="let user of users">
+    <td>{{user.id}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.userRole | userRole}}</td>
+    <td>{{user.createdAt}}</td>
+    <td [appYesOrNo]="user.confirmed">{{user.confirmed | yesOrNo}}</td>
+    <td [appYesOrNo]="user.confirmedByAdmin">{{user.confirmedByAdmin | yesOrNo}}</td>
+  </tr>
+  </tbody>
+</table>

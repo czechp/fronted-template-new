@@ -14,6 +14,14 @@ body {
   background-color: getColor(background);
 }
 
+.correct {
+  color: getColor(success)
+}
+
+.incorrect {
+  color: getColor(warn)
+}
+
 .form-wrapper {
   width: 100%;
   display: flex;
@@ -32,4 +40,27 @@ form {
   }
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-style: hidden;
+}
+
+th, td {
+  border-color: getColor(color) !important;
+  border: .1rem solid;
+  padding: .7rem;
+  outline: none;
+  text-align: center;
+}
+
+tbody {
+  tr {
+    &:hover {
+      cursor: pointer;
+      background-color: getColor(color);
+      color: getColor(background);
+    }
+  }
+}
 

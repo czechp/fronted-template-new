@@ -14,6 +14,8 @@ import {
 import {UsersPageComponent} from './pages/users-page/users-page.component';
 import {IsAdminDirective} from './directives/is-admin.directive';
 import {ForbiddenPageComponent} from './pages/forbidden-page/forbidden-page.component';
+import {UsersListComponent} from './components/users-list/users-list.component';
+import {UserRolePipe} from './pipe/user-role.pipe';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {ForbiddenPageComponent} from './pages/forbidden-page/forbidden-page.comp
     RegisterConfirmationFormComponent,
     UsersPageComponent,
     IsAdminDirective,
-    ForbiddenPageComponent
+    ForbiddenPageComponent,
+    UsersListComponent,
+    UserRolePipe
   ],
   exports: [
     LoginPageComponent,

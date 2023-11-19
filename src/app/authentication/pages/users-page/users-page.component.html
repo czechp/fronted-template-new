@@ -1,1 +1,5 @@
-<app-page title="Użytkownicy"></app-page>
+<app-page title="Użytkownicy">
+  <ng-container *ngIf="users$ | async as users">
+    <app-users-list [users]="users"/>
+  </ng-container>
+</app-page>

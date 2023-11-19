@@ -8,13 +8,17 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {StatementComponent} from './components/statement/statement.component';
 import {HttpClientModule} from "@angular/common/http";
+import {YesOrNoPipe} from './pipes/yes-or-no.pipe';
+import {YesOrNoDirective} from './directives/yes-or-no.directive';
 
 
 @NgModule({
   declarations: [
     PageComponent,
     LoadingSpinnerComponent,
-    StatementComponent
+    StatementComponent,
+    YesOrNoPipe,
+    YesOrNoDirective
   ],
   exports: [
     PageComponent,
@@ -23,7 +27,9 @@ import {HttpClientModule} from "@angular/common/http";
     FormsModule,
     ReactiveFormsModule,
     StatementComponent,
-    HttpClientModule
+    HttpClientModule,
+    YesOrNoPipe,
+    YesOrNoDirective
   ],
   imports: [
     CommonModule,
