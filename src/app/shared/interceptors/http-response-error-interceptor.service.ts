@@ -1,13 +1,14 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {catchError, Observable, throwError} from "rxjs";
 import {StatementService} from "../services/statement.service";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpResponseErrorInterceptorService implements HttpInterceptor {
-
+  private router = inject(Router);
   constructor(private statementService: StatementService) {
   }
 
@@ -21,6 +22,14 @@ export class HttpResponseErrorInterceptorService implements HttpInterceptor {
   }
 
   private handleError(response: HttpErrorResponse) {
-    this.statementService.showError(response.error.message || "Brak połączenia z serwerem");
+    switch (response.status) {
+      case 401: {
+        this.statementService.showError("Brak uprawnień");
+        this.router.navigate(["/"]);
+        break;
+      }
+      default:
+        this.statementService.showError(response.error.message || "Brak połączenia z serwerem");
+    }
   }
 }

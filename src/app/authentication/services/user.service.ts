@@ -16,4 +16,12 @@ export class UserService {
   getUsers(): Observable<UserModel[]> {
     return this.httpClient.get<UserModel[]>(`${BACKEND_URL}/users`);
   }
+
+  getUserById(id: number) {
+    return this.httpClient.get<UserModel>(`${BACKEND_URL}/users/${id}`);
+  }
+
+  removeUserById(userId: number) {
+    return this.httpClient.delete(`${BACKEND_URL}/users/${userId}`);
+  }
 }

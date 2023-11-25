@@ -16,6 +16,12 @@ import {IsAdminDirective} from './directives/is-admin.directive';
 import {ForbiddenPageComponent} from './pages/forbidden-page/forbidden-page.component';
 import {UsersListComponent} from './components/users-list/users-list.component';
 import {UserRolePipe} from './pipe/user-role.pipe';
+import {RouterModule} from "@angular/router";
+import {LoginGuardService} from "../shared/guards/login-guard.service";
+import {AdminGuardService} from "../shared/guards/admin-guard.service";
+import {UserDetailsPageComponent} from './pages/user-details-page/user-details-page.component';
+import {UserDetailsInfoComponent} from './components/user-details-info/user-details-info.component';
+import {UserDeleteComponent} from './components/user-delete/user-delete.component';
 
 
 @NgModule({
@@ -30,7 +36,10 @@ import {UserRolePipe} from './pipe/user-role.pipe';
     IsAdminDirective,
     ForbiddenPageComponent,
     UsersListComponent,
-    UserRolePipe
+    UserRolePipe,
+    UserDetailsPageComponent,
+    UserDetailsInfoComponent,
+    UserDeleteComponent
   ],
   exports: [
     LoginPageComponent,
@@ -39,7 +48,19 @@ import {UserRolePipe} from './pipe/user-role.pipe';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forChild([
+      {path: "login", component: LoginPageComponent},
+      {path: "register", component: RegisterPageComponent},
+      {path: "register-confirmation", component: RegisterConfirmationPageComponent},
+      {path: "users", component: UsersPageComponent, canActivate: [LoginGuardService, AdminGuardService]},
+      {
+        path: "user-details/:id",
+        component: UserDetailsPageComponent,
+        canActivate: [LoginGuardService, AdminGuardService]
+      },
+      {path: "forbidden", component: ForbiddenPageComponent}
+    ])
   ]
 })
 export class AuthenticationModule {

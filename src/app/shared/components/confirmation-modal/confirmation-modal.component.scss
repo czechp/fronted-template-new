@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  padding: 2rem;
+}
+
+* {
+  text-align: center;
+}
+
+p {
+  font-size: larger;
+}
+
+.button-section {
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  width: 40%;
+}

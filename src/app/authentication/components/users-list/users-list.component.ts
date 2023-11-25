@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {UserModel} from "../../models/user.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-users-list',
@@ -9,8 +10,9 @@ import {UserModel} from "../../models/user.model";
 export class UsersListComponent {
   @Input({required: true})
   users!: UserModel[];
+  private router = inject(Router);
 
   navigateToDetails(userId: number) {
-    console.log(`${userId}`)
+    this.router.navigate(["/user-details", userId]);
   }
 }

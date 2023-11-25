@@ -1,0 +1,12 @@
+<ng-container *ngIf="user$ | async as user">
+  <mat-tab-group>
+    <mat-tab label="Informacje">
+      <app-user-details-info [user]="user"/>
+    </mat-tab>
+    <mat-tab label="Aktywuj"></mat-tab>
+    <mat-tab label="Zmień role"></mat-tab>
+    <mat-tab label="Usuń">
+      <app-user-delete (userDeleted)="deleteUser($event)" [user]="user"/>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>

@@ -16,7 +16,7 @@
     <td>{{user.username}}</td>
     <td>{{user.email}}</td>
     <td>{{user.userRole | userRole}}</td>
-    <td>{{user.createdAt}}</td>
+    <td>{{user.createdAt | fullDate}}</td>
     <td [appYesOrNo]="user.confirmed">{{user.confirmed | yesOrNo}}</td>
     <td [appYesOrNo]="user.confirmedByAdmin">{{user.confirmedByAdmin | yesOrNo}}</td>
   </tr>
