@@ -15,6 +15,7 @@ import {InfoSectionComponent} from './components/info-section/info-section.compo
 import {FullDatePipe} from './pipes/full-date.pipe';
 import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dialog";
 import {ConfirmationModalComponent} from './components/confirmation-modal/confirmation-modal.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {ConfirmationModalComponent} from './components/confirmation-modal/confir
     MatTabsModule,
     InfoSectionComponent,
     FullDatePipe,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   imports: [
     CommonModule,
@@ -52,7 +54,8 @@ import {ConfirmationModalComponent} from './components/confirmation-modal/confir
     ReactiveFormsModule,
     HttpClientModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {width: "750px"}}

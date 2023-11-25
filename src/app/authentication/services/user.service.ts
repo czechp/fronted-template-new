@@ -4,6 +4,7 @@ import {UserModel} from "../models/user.model";
 import {HttpClient} from "@angular/common/http";
 import {BACKEND_URL} from "../../shared/constants/url";
 import {UserActivateModel} from "../models/user-activate.model";
+import {UserChangeRoleModel} from "../models/user-change-role.model";
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,9 @@ export class UserService {
 
   activateUser(activationModel: UserActivateModel) {
     return this.httpClient.patch(`${BACKEND_URL}/users/confirm-by-admin/${activationModel.userId}`, {}, {params: {activation: activationModel.activate}});
+  }
+
+  changeRole(changeRoleModel: UserChangeRoleModel) {
+    return this.httpClient.patch(`${BACKEND_URL}/users/assign-role/${changeRoleModel.userId}`, {}, {params: {role: changeRoleModel.role}});
   }
 }

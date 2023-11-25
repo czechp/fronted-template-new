@@ -23,6 +23,7 @@ import {UserDetailsPageComponent} from './pages/user-details-page/user-details-p
 import {UserDetailsInfoComponent} from './components/user-details-info/user-details-info.component';
 import {UserDeleteComponent} from './components/user-delete/user-delete.component';
 import {UserActivateComponent} from './components/user-activate/user-activate.component';
+import {UserChangeRoleFormComponent} from './components/user-change-role-form/user-change-role-form.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {UserActivateComponent} from './components/user-activate/user-activate.co
     UserDetailsPageComponent,
     UserDetailsInfoComponent,
     UserDeleteComponent,
-    UserActivateComponent
+    UserActivateComponent,
+    UserChangeRoleFormComponent
   ],
   exports: [
     LoginPageComponent,

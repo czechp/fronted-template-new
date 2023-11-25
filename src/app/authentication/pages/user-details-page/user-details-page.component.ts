@@ -2,6 +2,7 @@ import {Component, inject} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {UserDetailsStateService} from "../../services/user-details-state.service";
 import {UserActivateModel} from "../../models/user-activate.model";
+import {UserChangeRoleModel} from "../../models/user-change-role.model";
 
 
 @Component({
@@ -30,5 +31,9 @@ export class UserDetailsPageComponent {
 
   changeActivation(activationModel: UserActivateModel) {
     this.userStateService.activateUser(activationModel);
+  }
+
+  changeRole(changeRoleModel: UserChangeRoleModel) {
+    this.userStateService.changeRole(changeRoleModel);
   }
 }
