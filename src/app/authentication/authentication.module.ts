@@ -22,6 +22,7 @@ import {AdminGuardService} from "../shared/guards/admin-guard.service";
 import {UserDetailsPageComponent} from './pages/user-details-page/user-details-page.component';
 import {UserDetailsInfoComponent} from './components/user-details-info/user-details-info.component';
 import {UserDeleteComponent} from './components/user-delete/user-delete.component';
+import {UserActivateComponent} from './components/user-activate/user-activate.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {UserDeleteComponent} from './components/user-delete/user-delete.componen
     UserRolePipe,
     UserDetailsPageComponent,
     UserDetailsInfoComponent,
-    UserDeleteComponent
+    UserDeleteComponent,
+    UserActivateComponent
   ],
   exports: [
     LoginPageComponent,

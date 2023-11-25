@@ -1,0 +1,6 @@
+<div class="center">
+  <form>
+    <button (click)="activate()" *ngIf="!user.confirmedByAdmin" color="primary" mat-raised-button>Aktywuj</button>
+    <button (click)="deactivate()" *ngIf="user.confirmedByAdmin" color="warn" mat-raised-button>Dezaktywuj</button>
+  </form>
+</div>

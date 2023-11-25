@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {UserModel} from "../models/user.model";
 import {HttpClient} from "@angular/common/http";
 import {BACKEND_URL} from "../../shared/constants/url";
+import {UserActivateModel} from "../models/user-activate.model";
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class UserService {
 
   removeUserById(userId: number) {
     return this.httpClient.delete(`${BACKEND_URL}/users/${userId}`);
+  }
+
+  activateUser(activationModel: UserActivateModel) {
+    return this.httpClient.patch(`${BACKEND_URL}/users/confirm-by-admin/${activationModel.userId}`, {}, {params: {activation: activationModel.activate}});
   }
 }
